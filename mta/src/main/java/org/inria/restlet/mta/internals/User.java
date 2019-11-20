@@ -1,5 +1,8 @@
 package org.inria.restlet.mta.internals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * User
@@ -19,6 +22,9 @@ public class User
 
     /** Age of the user.*/
     private int age_;
+    
+    private List<Tweet> listeOfPublication;
+    
 
     /** To be added: collection of tweets of the user. */
 
@@ -26,6 +32,7 @@ public class User
     {
         name_ = name;
         age_ = age;
+        listeOfPublication=new ArrayList<Tweet>();
     }
 
     public String getName()
@@ -57,5 +64,13 @@ public class User
     {
         id_ = id;
     }
+
+	public List<Tweet> getListeOfPublication() {
+		return listeOfPublication;
+	}
+
+	public void addPublication(Tweet tweet) {
+		this.listeOfPublication.add(tweet);
+	}
 
 }
