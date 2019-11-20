@@ -43,12 +43,17 @@ public class UserResource extends ServerResource
         String userIdString = (String) getRequest().getAttributes().get("userId");
         int userId = Integer.valueOf(userIdString);
         user_ = backend_.getDatabase().getUser(userId);
-
         JSONObject userObject = new JSONObject();
+        if(user_ != null) {
         userObject.put("name", user_.getName());
         userObject.put("age", user_.getAge());
         userObject.put("id", user_.getId());
-
+        }
+        
+        else {
+       	 userObject.put("User ","User don't exist");
+        }
+        
         return new JsonRepresentation(userObject);
     }
     

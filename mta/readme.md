@@ -41,11 +41,11 @@ terminal:
     $ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" -d "{\"name\":\"peter\", \"age\":30}" http://localhost:8124/users
     
     $ curl http://localhost:8124/users : //liste de tous les users
-	$curl http://localhost:8124/0/users  : // afficher un user
-	$curl -X DELETE http://localhost:8124/0/users : //supprimer un user
+	$curl http://localhost:8124/users/0  : // afficher un user
+	$curl -X DELETE http://localhost:8124/users/0 : //supprimer un user
 
-	$curl http://localhost:8124/tweets  :  //liste de tous les tweets
-	$curl http://localhost:8124/0/tweets : //liste de tous les tweets d'un user
+	$curl http://localhost:8124/users/tweets  :  //liste de tous les tweets
+	$curl http://localhost:8124/users/0/tweets : //liste de tous les tweets d'un user
 
     // ajouter un tweet
 	$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" -d "{\"contenu\":\"myMessage\"}" http://localhost:8124/users/0/tweets

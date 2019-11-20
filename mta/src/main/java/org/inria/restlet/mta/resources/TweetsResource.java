@@ -2,7 +2,6 @@ package org.inria.restlet.mta.resources;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import org.inria.restlet.mta.backend.Backend;
 import org.inria.restlet.mta.internals.Tweet;
@@ -80,27 +79,6 @@ public class TweetsResource extends ServerResource{
    
     }
     
-	@Get("json")
-    public Representation getAllTweets() throws JSONException
-    {
-		//Recuperation de tous les tweets
-		List<Tweet> listTweet = new ArrayList<Tweet>();
-		for (User user : backend_.getDatabase().getUsers()) {
-			listTweet.addAll(user.getListeOfPublication());
-		}
-		
-      //Representation Json des Tweets
-       Collection<JSONObject> jsonTweets = new ArrayList<JSONObject>();
-
-        for (Tweet tweet: listTweet )
-        {
-            JSONObject current = new JSONObject();
-            current.put("Tweet", tweet.getContenu());
-            current.put("Date Tweet", tweet.getDatePublication().toString());
-            jsonTweets.add(current);
-        }
-        JSONArray jsonArray = new JSONArray(jsonTweets);
-        return new JsonRepresentation(jsonArray);
-    }
+	
     
 }
