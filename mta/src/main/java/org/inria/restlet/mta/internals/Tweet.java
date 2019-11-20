@@ -25,6 +25,13 @@ public class Tweet {
 	}
 	
 	
+	@Override
+	public String toString() {
+	
+		return contenu + " " + datePublication;
+	}
+	
+	
 	
 	
 }

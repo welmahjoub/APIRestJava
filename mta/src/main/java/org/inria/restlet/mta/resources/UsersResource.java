@@ -82,10 +82,7 @@ public class UsersResource extends ServerResource
         resultObject.put("id", user.getId());
         JsonRepresentation result = new JsonRepresentation(resultObject);
         return result;
-        
-        
-    	
-    	
+   	
     }
 
 }

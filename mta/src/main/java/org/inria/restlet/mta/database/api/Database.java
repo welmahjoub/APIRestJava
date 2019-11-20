@@ -40,5 +40,14 @@ public interface Database
      *  @return the user
      */
     User getUser(int id);
+    
+    /**
+    *
+    * Delete a user in the database.
+    *
+    * @param id id of the user
+    * @return  the  user.
+    */
+   User deleteUser(int id);
 
 }

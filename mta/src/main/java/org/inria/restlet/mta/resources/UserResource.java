@@ -5,6 +5,7 @@ import org.inria.restlet.mta.internals.User;
 import org.json.JSONObject;
 import org.restlet.ext.json.JsonRepresentation;
 import org.restlet.representation.Representation;
+import org.restlet.resource.Delete;
 import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
 
@@ -42,6 +43,24 @@ public class UserResource extends ServerResource
         String userIdString = (String) getRequest().getAttributes().get("userId");
         int userId = Integer.valueOf(userIdString);
         user_ = backend_.getDatabase().getUser(userId);
+
+        JSONObject userObject = new JSONObject();
+        userObject.put("name", user_.getName());
+        userObject.put("age", user_.getAge());
+        userObject.put("id", user_.getId());
+
+        return new JsonRepresentation(userObject);
+    }
+    
+    @Delete("json")
+    public Representation deleteUser() throws Exception
+    {
+    	//Recuperation du user correspondant
+        String userIdString = (String) getRequest().getAttributes().get("userId");
+        int userId = Integer.valueOf(userIdString);
+        
+        //Suppresion du user
+         user_ =backend_.getDatabase().deleteUser(userId);
 
         JSONObject userObject = new JSONObject();
         userObject.put("name", user_.getName());
