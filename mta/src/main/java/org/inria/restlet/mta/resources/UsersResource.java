@@ -68,6 +68,7 @@ public class UsersResource extends ServerResource
     public Representation createUser(JsonRepresentation representation)
         throws Exception
     {
+    	
         JSONObject object = representation.getJsonObject();
         String name = object.getString("name");
         int age = object.getInt("age");
