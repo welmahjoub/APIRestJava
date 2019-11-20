@@ -36,7 +36,7 @@ public interface Database
 
     /**
      *  Returns the user with a given id.
-     *
+     *  @param id id du user
      *  @return the user
      */
     User getUser(int id);

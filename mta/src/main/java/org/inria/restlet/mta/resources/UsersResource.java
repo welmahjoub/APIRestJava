@@ -43,7 +43,7 @@ public class UsersResource extends ServerResource
      * Returns the list of all the users
      *
      * @return  JSON representation of the users
-     * @throws JSONException
+     * @throws JSONException format no supporter
      */
     @Get("json")
     public Representation getUsers() throws JSONException
@@ -74,7 +74,7 @@ public class UsersResource extends ServerResource
 
         // Save the user
         User user = backend_.getDatabase().createUser(name, age);
-
+         
         // generate result
         JSONObject resultObject = new JSONObject();
         resultObject.put("name", user.getName());
@@ -82,6 +82,10 @@ public class UsersResource extends ServerResource
         resultObject.put("id", user.getId());
         JsonRepresentation result = new JsonRepresentation(resultObject);
         return result;
+        
+        
+    	
+    	
     }
 
 }

@@ -28,13 +28,15 @@ public class InMemoryDatabase implements Database
     public InMemoryDatabase()
     {
         users_ = new HashMap<Integer, User>();
+        
+        createUser("mahjoub", 12);
     }
 
     /**
      *
      * Synchronized user creation.
-     * @param name
-     * @param age
+     * @param name name of user
+     * @param age name of user
      *
      * @return the user created
      */

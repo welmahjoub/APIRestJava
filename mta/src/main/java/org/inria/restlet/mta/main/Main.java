@@ -25,7 +25,7 @@ public final class Main
      * Main method.
      *
      * @param args  The arguments of the commande line
-     * @throws Exception
+     * @throws Exception desc
      */
     public static void main(String[] args) throws Exception
     {
