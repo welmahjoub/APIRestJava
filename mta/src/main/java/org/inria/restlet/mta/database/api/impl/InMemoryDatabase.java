@@ -1,10 +1,12 @@
 package org.inria.restlet.mta.database.api.impl;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.inria.restlet.mta.database.api.Database;
+import org.inria.restlet.mta.internals.Tweet;
 import org.inria.restlet.mta.internals.User;
 
 /**
@@ -29,7 +31,8 @@ public class InMemoryDatabase implements Database
     {
         users_ = new HashMap<Integer, User>();
         
-        createUser("mahjoub", 12);
+        User u=createUser("mahjoub", 12);
+        u.getListeOfPublication().add(new Tweet("hi", new Date()));
     }
 
     /**
