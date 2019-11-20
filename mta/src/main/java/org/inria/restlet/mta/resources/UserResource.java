@@ -61,13 +61,16 @@ public class UserResource extends ServerResource
         
         //Suppresion du user
          user_ =backend_.getDatabase().deleteUser(userId);
-
-        JSONObject userObject = new JSONObject();
-        userObject.put("name", user_.getName());
-        userObject.put("age", user_.getAge());
-        userObject.put("id", user_.getId());
-
-        return new JsonRepresentation(userObject);
+         JSONObject userObject = new JSONObject();
+         if(user_ != null) {
+	        userObject.put("name", user_.getName());
+	        userObject.put("age", user_.getAge());
+	        userObject.put("id", user_.getId());
+         }
+         else {
+        	 userObject.put("User ","User don't exist");
+         }
+         return new JsonRepresentation(userObject);
     }
 
 }
